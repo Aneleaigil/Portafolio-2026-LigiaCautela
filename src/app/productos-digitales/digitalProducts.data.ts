@@ -4,6 +4,10 @@ import latamImage from "@/assets/images/projects/latam-autoinscripcion.png";
 import cencosudImage from "@/assets/images/projects/cencosud-tickets.png";
 import smartflyImage from "@/assets/images/projects/smartfly-app.png";
 import totemImage from "@/assets/images/projects/totem-kiosco.png";
+import bciImage from "@/assets/images/projects/bci-cashback.png";
+import selloImage from "@/assets/images/projects/sello-lena.png";
+import trabajosImage from "@/assets/images/projects/trabajos-en-obra.png";
+import asignacionImage from "@/assets/images/projects/asignacion-familiar.png";
 
 export type Project = {
   title: string;
@@ -23,7 +27,7 @@ export const featuredProjects: Project[] = [
     client: "Bci",
     year: "2025",
     tone: "mint",
-    image: null,
+    image: bciImage,
     imageAlt: "Pantallas de la app de beneficios de Bci",
     href: "/proyectos/bci",
   },
@@ -32,7 +36,7 @@ export const featuredProjects: Project[] = [
     client: "Agencia de Sostenibilidad Energetica",
     year: "2024 -2025",
     tone: "mint",
-    image: null,
+    image: selloImage,
     imageAlt: "Pantalla del sistema Sello Calidad de Leña",
     href: "/proyectos/sello-calidad-lena",
   },
@@ -44,7 +48,7 @@ export const projects: Project[] = [
     client: "Cámara Chilena De La Construcción (CCHC)",
     year: "2023 -2024",
     tone: "lavender",
-    image: null,
+    image: trabajosImage,
     imageAlt: "Portal de empleos Trabajos en Obra",
   },
   {
@@ -52,7 +56,7 @@ export const projects: Project[] = [
     client: "Caja los Andes",
     year: "2023 -2024",
     tone: "gray",
-    image: null,
+    image: asignacionImage,
     imageAlt: "Sitio web de Asignación Familiar",
   },
   {
