@@ -12,8 +12,6 @@ type ProjectCardProps = {
   href: string;
   image?: StaticImageData | null;
   imageAlt?: string;
-  /** Muestra el texto "Ir al Caso" (solo en las tarjetas destacadas) */
-  showCta?: boolean;
 };
 
 /** La tarjeta completa es un enlace al caso del proyecto. */
@@ -25,7 +23,6 @@ export default function ProjectCard({
   href,
   image,
   imageAlt = "",
-  showCta = false,
 }: ProjectCardProps) {
   return (
     <Link href={href} className={`${styles.card} ${styles[tone]}`}>
@@ -41,11 +38,6 @@ export default function ProjectCard({
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.meta}>Cliente: {client}</p>
         <p className={styles.meta}>Año: {year}</p>
-        {showCta && (
-          <span className={styles.cta}>
-            Ir al Caso <span aria-hidden="true">→</span>
-          </span>
-        )}
       </div>
     </Link>
   );

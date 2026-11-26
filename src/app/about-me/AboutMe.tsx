@@ -2,10 +2,10 @@ import Image from "next/image";
 import Button from "../componentes-base/button/Button";
 import Icon from "../componentes-base/icon/Icon";
 import profile from "@/assets/images/profile.webp";
-import { EMAIL, LINKEDIN_URL, certifications, education, experience } from "./landingPage.data";
-import styles from "./LandingPage.module.css";
+import { EMAIL, LINKEDIN_URL, certifications, education, experience } from "./aboutMe.data";
+import styles from "./AboutMe.module.css";
 
-export default function LandingPage() {
+export default function AboutMe() {
   const years = 8;
 
   return (

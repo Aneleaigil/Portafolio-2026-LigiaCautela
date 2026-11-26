@@ -1,5 +1,5 @@
-import LandingPage from "./landingPage/LandingPage";
+import DigitalProducts from "./productos-digitales/DigitalProducts";
 
 export default function HomePage() {
-  return <LandingPage />;
+  return <DigitalProducts />;
 }

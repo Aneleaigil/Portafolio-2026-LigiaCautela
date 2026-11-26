@@ -52,7 +52,9 @@ export default function Header() {
           <nav className={styles.nav} aria-label="Principal">
             <ul className={styles.list}>
               {navItems.map((item) => {
-                const isActive = pathname === item.href;
+                const isActive =
+                  pathname === item.href ||
+                  (item.href === "/productos-digitales" && pathname === "/");
                 return (
                   <li key={item.href}>
                     <Link

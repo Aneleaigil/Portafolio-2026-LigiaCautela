@@ -19,11 +19,9 @@ export type Project = {
   /** null mientras falta el asset de la captura del proyecto */
   image: StaticImageData | null;
   imageAlt: string;
-  /** Muestra "Ir al Caso" (solo en las tarjetas destacadas) */
-  showCta?: boolean;
 };
 
-/** Los dos primeros proyectos son destacados (tarjetas anchas con "Ir al Caso"). */
+/** Los dos primeros proyectos son destacados (tarjetas anchas). */
 export const featuredProjects: Project[] = [
   {
     title: "Canje de cashback app beneficios bci",
@@ -33,7 +31,6 @@ export const featuredProjects: Project[] = [
     href: "/proyectos/bci",
     image: bciImage,
     imageAlt: "Pantallas de la app de beneficios de Bci",
-    showCta: true,
   },
   {
     title: "Nuevo sistema para el programa Sello de la Leña",
@@ -43,7 +40,6 @@ export const featuredProjects: Project[] = [
     href: "/proyectos/sello-calidad-lena",
     image: selloImage,
     imageAlt: "Pantalla del sistema Sello Calidad de Leña",
-    showCta: true,
   },
 ];
 
