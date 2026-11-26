@@ -124,21 +124,23 @@ export default function BciProject() {
         </div>
       </section>
 
-      <section className={styles.resultsBand} aria-labelledby="res-fakedoor">
-        <div className={styles.resultsInner}>
-          <h2 id="res-fakedoor" className={styles.sectionTitle}>
-            {caso.resultadosFakedoor.title}
-          </h2>
-          <ResultGrid items={caso.resultadosFakedoor.items} />
-        </div>
-      </section>
+      <div className={styles.resultsGroup}>
+        <section className={styles.resultsBand} aria-labelledby="res-fakedoor">
+          <div className={styles.resultsInner}>
+            <h2 id="res-fakedoor" className={styles.sectionTitle}>
+              {caso.resultadosFakedoor.title}
+            </h2>
+            <ResultGrid items={caso.resultadosFakedoor.items} />
+          </div>
+        </section>
 
-      <section className={styles.resultsSection} aria-labelledby="res-guerrilla">
-        <h2 id="res-guerrilla" className={styles.sectionTitle}>
-          {caso.resultadosGuerrilla.title}
-        </h2>
-        <ResultGrid items={caso.resultadosGuerrilla.items} />
-      </section>
+        <section className={styles.resultsSection} aria-labelledby="res-guerrilla">
+          <h2 id="res-guerrilla" className={styles.sectionTitle}>
+            {caso.resultadosGuerrilla.title}
+          </h2>
+          <ResultGrid items={caso.resultadosGuerrilla.items} />
+        </section>
+      </div>
     </article>
   );
 }
