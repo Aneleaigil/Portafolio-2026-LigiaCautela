@@ -92,7 +92,11 @@ export const caso = {
   canjeParcial: {
     tag: "Canje Parcial",
     title: "Prototipo Canje Parcial",
-    paragraphs: [PENDIENTE],
+    paragraphs: [
+      "El canje parcial se planteó con el componente barra de selección, con un mínimo de canje de $2.000 de cashback y un máximo que sería el total acumulado por el cliente.",
+      "La principal dificultad era que, por sistemas, en ese momento no era posible que el usuario eligiera el monto de su canje: tenía que seleccionar los tramos disponibles que definía el sistema. La barra se iba a mover entre los montos preestablecidos por el sistema, partiendo del mínimo de $2.000 hasta llegar a su máximo. También se planteó que esto tendría un mínimo para poder parcializar el monto: con menos de $20.000 en cashback no se puede dividir, y debe canjearse el total acumulado.",
+      "Para ello se armó este prototipo en Figma Make y se publicó en Google Sites para testear con al menos 15 clientes en un día. Finalmente fueron 12.",
+    ],
   },
   resultadosFakedoor: {
     title: "Resultados del Fakedoor",
