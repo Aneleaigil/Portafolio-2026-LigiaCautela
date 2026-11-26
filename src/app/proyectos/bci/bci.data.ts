@@ -1,6 +1,6 @@
 /**
  * Contenido del caso BCI.
- * Los textos marcados con PENDIENTE no se pudieron leer con certeza en el diseño
+ * Los textos marcados con PENDIENTE aún no se pudieron leer con certeza en el diseño
  * entregado y deben confirmarse antes de publicar.
  */
 export const PENDIENTE = "Texto pendiente de confirmar.";
@@ -85,7 +85,9 @@ export const caso = {
   },
   fakedoor: {
     title: "Prototipo para el Fakedoor",
-    paragraphs: [PENDIENTE],
+    paragraphs: [
+      "Se iteró 3 versiones principalmente: la primera sin texto al final, la segunda con el texto y una 3era la misma con cambios en el contenido principalmente. Se testeó durante una semana con aproximadamente 2000 clientes seleccionados con una media de más de 10.000 pesos de cashback acumulado.",
+    ],
   },
   canjeParcial: {
     tag: "Canje Parcial",
@@ -96,18 +98,41 @@ export const caso = {
     title: "Resultados del Fakedoor",
     items: [
       { valor: "2000", texto: "Clientes participaron en el experimento durante 5 días." },
-      { valor: "85% y 70%", texto: PENDIENTE },
-      { valor: "Decisión", texto: PENDIENTE },
-      { valor: "En producción", texto: PENDIENTE, destacado: true },
+      {
+        valor: "85% y 70%",
+        texto: "85% de los clientes eligieron canje para pagar sus tarjetas de crédito y un 70% para puntos Líder.",
+      },
+      {
+        valor: "Decisión",
+        texto: "Aunque la opción más seleccionada fue pagar la TDC, esto realmente no es un beneficio, e igual puede hacerlo con el retiro del cashback a su cuenta corriente.",
+      },
+      {
+        valor: "En producción",
+        texto: "La alianza con Líder ya estaba lista y fue la 2da más votada, por lo cual es la que está actualmente en producción.",
+        destacado: true,
+      },
     ],
   },
   resultadosGuerrilla: {
     title: "Resultados del test de guerrilla",
     items: [
-      { valor: "12 clientes", texto: PENDIENTE },
-      { valor: "75%", texto: PENDIENTE },
-      { valor: "Canje parcial", texto: PENDIENTE },
-      { valor: "En producción", texto: PENDIENTE, destacado: true },
+      {
+        valor: "12 clientes",
+        texto: "Fueron testeados con un prototipo en código hecho con Figma Make - IA en una jornada.",
+      },
+      {
+        valor: "75%",
+        texto: "De los clientes entendieron bien el flujo con algunas observaciones del canje parcial, y la gran mayoría canjeaba todo el monto disponible: $100.130.",
+      },
+      {
+        valor: "Canje parcial",
+        texto: "El componente de barra selectora de montos se entendió bien, pero al no ser algo que permitiera seleccionar con exactitud un monto, no fue tan valorada. Esto era más por el sistema que por el propio componente, que no estaba disponible.",
+      },
+      {
+        valor: "En producción",
+        texto: "Con el resultado del fake door y este test se resolvió dejar el canje solo por el total, y por los momentos no implementar el parcial hasta poder permitir que el usuario pudiera seleccionar su monto exacto.",
+        destacado: true,
+      },
     ],
   },
 };

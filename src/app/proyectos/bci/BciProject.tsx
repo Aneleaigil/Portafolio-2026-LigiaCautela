@@ -4,7 +4,7 @@ import cashbackResumen from "@/assets/images/bci/cashback-resumen.png";
 import saldosMovimientos from "@/assets/images/bci/saldos-movimientos.png";
 import usarCashback from "@/assets/images/bci/usar-cashback.png";
 import canjeMonto from "@/assets/images/bci/canje-monto.png";
-import fakedoorStrip from "@/assets/images/projects/bci-cashback.png";
+import fakedoorStrip from "@/assets/images/bci/fakedoor-prototipos.png";
 import { caso } from "./bci.data";
 import styles from "./BciProject.module.css";
 
