@@ -12,6 +12,12 @@
   --color-line: #979797;
   --color-white: #ffffff;
 
+  /* Fondos de tarjetas de proyecto */
+  --color-card-lavender: #dfe3f8;
+  --color-card-gray: #e4e4e4;
+  --color-card-pink: #ffd4f7;
+  --color-card-dark: #222222;
+
   /* Tipografía: Futura (títulos, vía Jost como equivalente) y Open Sans */
   --font-title: var(--font-jost), "Futura", "Century Gothic", sans-serif;
   --font-body: var(--font-open-sans), "Open Sans", Arial, sans-serif;

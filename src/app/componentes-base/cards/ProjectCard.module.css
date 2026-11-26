@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding: 24px;
+  border-radius: 16px;
+  color: var(--color-text);
+}
+
+.mint {
+  background: var(--color-mint);
+}
+
+.lavender {
+  background: var(--color-card-lavender);
+}
+
+.gray {
+  background: var(--color-card-gray);
+}
+
+.pink {
+  background: var(--color-card-pink);
+}
+
+.dark {
+  background: var(--color-card-dark);
+  color: var(--color-white);
+}
+
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  border-radius: 12px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.placeholder {
+  width: 100%;
+  height: 240px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.dark .placeholder {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.meta {
+  font-size: var(--text-body);
+  color: inherit;
+  opacity: 0.9;
+}
+
+.cta {
+  margin-top: 8px;
+  align-self: flex-start;
+  font-weight: 600;
+  color: inherit;
+  padding: 4px 8px;
+}
+
+.cta:hover {
+  text-decoration: underline;
+}
