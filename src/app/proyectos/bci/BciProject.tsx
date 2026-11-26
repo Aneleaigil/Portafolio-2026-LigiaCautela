@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import cashbackResumen from "@/assets/images/bci/cashback-resumen.png";
-import saldosMovimientos from "@/assets/images/bci/saldos-movimientos.png";
-import usarCashback from "@/assets/images/bci/usar-cashback.png";
-import canjeMonto from "@/assets/images/bci/canje-monto.png";
 import fakedoorPantallas from "@/assets/images/bci/fakedoor-pantallas.png";
+import canjeParcialImagen from "@/assets/images/bci/canje-parcial.png";
 import { caso } from "./bci.data";
 import styles from "./BciProject.module.css";
 
@@ -83,15 +81,17 @@ export default function BciProject() {
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="fakedoor-titulo">
-        <h2 id="fakedoor-titulo" className={styles.sectionTitle}>
-          {caso.fakedoor.title}
-        </h2>
-        {caso.fakedoor.paragraphs.map((p, i) => (
-          <p key={i} className={styles.body}>
-            {p}
-          </p>
-        ))}
+      <section className={styles.fakedoorSection} aria-labelledby="fakedoor-titulo">
+        <div className={styles.fakedoorText}>
+          <h2 id="fakedoor-titulo" className={styles.sectionTitle}>
+            {caso.fakedoor.title}
+          </h2>
+          {caso.fakedoor.paragraphs.map((p, i) => (
+            <p key={i} className={styles.body}>
+              {p}
+            </p>
+          ))}
+        </div>
         <div className={styles.centered}>
           <Image
             src={fakedoorPantallas}
@@ -102,34 +102,24 @@ export default function BciProject() {
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="canje-titulo">
-        <span className={styles.canjeTag}>{caso.canjeParcial.tag}</span>
-        <h2 id="canje-titulo" className={styles.sectionTitle}>
-          {caso.canjeParcial.title}
-        </h2>
-        {caso.canjeParcial.paragraphs.map((p, i) => (
-          <p key={i} className={styles.body}>
-            {p}
-          </p>
-        ))}
-        <div className={styles.phonesRow}>
+      <section className={styles.canjeLayout} aria-labelledby="canje-titulo">
+        <div className={styles.canjeText}>
+          <span className={styles.canjeTag}>{caso.canjeParcial.tag}</span>
+          <h2 id="canje-titulo" className={styles.sectionTitle}>
+            {caso.canjeParcial.title}
+          </h2>
+          {caso.canjeParcial.paragraphs.map((p, i) => (
+            <p key={i} className={styles.body}>
+              {p}
+            </p>
+          ))}
+        </div>
+        <div className={styles.canjeImage}>
           <Image
-            src={saldosMovimientos}
-            alt="Pantalla de saldos y movimientos"
-            className={`${styles.phone} ${styles.phoneLeft}`}
-            sizes="(max-width: 600px) 32vw, 240px"
-          />
-          <Image
-            src={usarCashback}
-            alt="Pantalla usar cashback con opciones de canje"
-            className={`${styles.phone} ${styles.phoneMid}`}
-            sizes="(max-width: 600px) 32vw, 240px"
-          />
-          <Image
-            src={canjeMonto}
-            alt="Pantalla de selección de monto a canjear"
-            className={`${styles.phone} ${styles.phoneRight}`}
-            sizes="(max-width: 600px) 32vw, 240px"
+            src={canjeParcialImagen}
+            alt="Pantallas del prototipo de canje parcial: saldos, usar cashback y monto a canjear"
+            className={styles.canjeImg}
+            sizes="(max-width: 1000px) 100vw, 40vw"
           />
         </div>
       </section>

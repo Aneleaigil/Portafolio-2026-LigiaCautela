@@ -90,17 +90,6 @@
   width: 100%;
 }
 
-.section {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.centered {
-  display: flex;
-  justify-content: center;
-}
-
 .sectionTitle {
   font-size: 32px;
   color: var(--color-navy);
@@ -187,7 +176,26 @@
   line-height: 1.5;
 }
 
-/* Fakedoor: imagen completa y centrada */
+/* Fakedoor: bloque de texto de 490px y 32px hasta la imagen */
+
+.fakedoorSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.fakedoorText {
+  width: 490px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
 
 .strip {
   width: 100%;
@@ -195,7 +203,22 @@
   height: auto;
 }
 
-/* Canje parcial: pantallas en escalera, a la derecha del texto */
+/* Canje parcial: texto de 700px y la imagen en el resto del ancho */
+
+.canjeLayout {
+  display: grid;
+  grid-template-columns: 700px minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.canjeText {
+  width: 700px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .canjeTag {
   align-self: flex-start;
@@ -205,29 +228,15 @@
   font-size: 14px;
 }
 
-.phonesRow {
+.canjeImage {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 24px;
-  margin-top: 24px;
 }
 
-.phone {
-  width: 240px;
+.canjeImg {
+  width: 100%;
+  max-width: 923px;
   height: auto;
-}
-
-.phoneLeft {
-  margin-top: 160px;
-}
-
-.phoneMid {
-  margin-top: 80px;
-}
-
-.phoneRight {
-  margin-top: 0;
 }
 
 /* Resultados: 60px arriba y abajo */
@@ -289,6 +298,20 @@
   line-height: 1.5;
 }
 
+@media (max-width: 1000px) {
+  .canjeLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .canjeText {
+    width: 100%;
+  }
+
+  .fakedoorText {
+    width: 100%;
+  }
+}
+
 @media (max-width: 900px) {
   .meta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -326,22 +349,6 @@
   .etapas,
   .results {
     grid-template-columns: 1fr;
-  }
-
-  .phonesRow {
-    gap: 8px;
-  }
-
-  .phone {
-    width: 32vw;
-  }
-
-  .phoneLeft {
-    margin-top: 72px;
-  }
-
-  .phoneMid {
-    margin-top: 36px;
   }
 
   .processBand {
