@@ -1,65 +1,105 @@
 import Image from "next/image";
 import Button from "../componentes-base/button/Button";
-import ProjectCard from "../componentes-base/cards/ProjectCard";
+import Icon from "../componentes-base/icon/Icon";
+import profile from "@/assets/images/profile.webp";
+import { EMAIL, LINKEDIN_URL, certifications, education, experience } from "./landingPage.data";
 import styles from "./LandingPage.module.css";
 
-const projects = [
-  {
-    title: "Caso BCI",
-    category: "Banca digital",
-    description:
-      "Rediseño de la experiencia de productos financieros para clientes digitales.",
-    href: "/proyectos/bci",
-  },
-  {
-    title: "Productos digitales",
-    category: "UX/UI",
-    description:
-      "Selección de productos digitales diseñados con foco en usabilidad y accesibilidad.",
-    href: "/productos-digitales",
-  },
-];
-
 export default function LandingPage() {
+  const years = 8;
+
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroText}>
-          <span className={styles.eyebrow}>Diseñadora UX/UI</span>
-          <h1 className={styles.title}>
-            Diseño experiencias claras, útiles y centradas en las personas.
-          </h1>
-          <p className={styles.subtitle}>
-            Bienvenida a mi portafolio. Aquí encontrarás mis casos de estudio y
-            productos digitales.
+          <p className={styles.kicker}>Ligia Cautela - Product designer senior</p>
+          <h1 className={styles.title}>Diseño de productos digitales con objetivos</h1>
+          <p className={styles.intro}>
+            Soy Product Designer con {years} años de experiencia y conocimientos en Frontend.
+            He trabajado en empresas como Bci, Caja Los Andes, Cencosud y LATAM, creando
+            productos digitales que equilibran usabilidad, estética, negocio y viabilidad
+            técnica. Integro IA en mis procesos de investigación y diseño para acelerar la
+            exploración, y la entregas.
           </p>
+
+          <ul className={styles.contact}>
+            <li className={styles.contactItem}>
+              <Icon name="home" />
+              <span>Santiago de Chile</span>
+            </li>
+            <li className={styles.contactItem}>
+              <Icon name="linkedin" />
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+                /in/ligiaelenacautela/
+              </a>
+            </li>
+            <li className={styles.contactItem}>
+              <Icon name="mail" />
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            </li>
+            <li className={styles.contactItem}>
+              <Icon name="download" />
+              <a href="#" aria-disabled="true">
+                Descargar CV
+              </a>
+            </li>
+          </ul>
+
           <div className={styles.actions}>
-            <Button href="/proyectos/bci">Ver proyectos</Button>
-            <Button href="/about" variant="secondary">
-              Sobre mí
-            </Button>
+            <Button href={LINKEDIN_URL}>Hablemos por Linkedin</Button>
           </div>
         </div>
-        <div className={styles.heroImage} aria-hidden="true">
+
+        <div className={styles.heroImage}>
           <Image
-            src="/hero-placeholder.svg"
-            alt=""
-            width={480}
-            height={360}
+            src={profile}
+            alt="Retrato de Ligia Cautela"
+            width={503}
+            height={564}
             priority
+            sizes="(max-width: 900px) 80vw, 503px"
           />
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="proyectos-titulo">
-        <h2 id="proyectos-titulo" className={styles.sectionTitle}>
-          Proyectos destacados
+      <section className={styles.section} aria-labelledby="experiencia-titulo">
+        <h2 id="experiencia-titulo" className={styles.sectionTitle}>
+          {years} años de experiencia
         </h2>
-        <div className={styles.grid}>
-          {projects.map((project) => (
-            <ProjectCard key={project.href} {...project} />
+        <ul className={styles.experienceList}>
+          {experience.map((item) => (
+            <li key={`${item.company}-${item.period}`} className={styles.experienceRow}>
+              <span className={styles.company}>{item.company}</span>
+              <span className={styles.role}>{item.role}</span>
+              <span className={styles.period}>{item.period}</span>
+            </li>
           ))}
-        </div>
+        </ul>
+      </section>
+
+      <section className={styles.section} aria-labelledby="educacion-titulo">
+        <h2 id="educacion-titulo" className={styles.sectionTitle}>
+          Educación y Certificaciones
+        </h2>
+
+        <ul className={styles.educationList}>
+          {education.map((item) => (
+            <li key={item.title} className={styles.educationItem}>
+              <p className={styles.educationTitle}>{item.title}</p>
+              <p>{item.institution}</p>
+            </li>
+          ))}
+        </ul>
+
+        <hr className={styles.divider} />
+
+        <ul className={styles.certList}>
+          {certifications.map((item) => (
+            <li key={item} className={styles.certItem}>
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

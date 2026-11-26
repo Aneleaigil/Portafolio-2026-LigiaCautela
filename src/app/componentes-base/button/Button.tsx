@@ -24,14 +24,13 @@ export default function Button({
   const className = `${styles.button} ${styles[variant]}`;
 
   if (href) {
-    const isExternal = href.startsWith("http");
-    if (isExternal) {
+    if (href.startsWith("http") || href.startsWith("mailto:")) {
       return (
         <a
           className={className}
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={href.startsWith("http") ? "_blank" : undefined}
+          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
           aria-label={ariaLabel}
         >
           {children}
@@ -46,12 +45,7 @@ export default function Button({
   }
 
   return (
-    <button
-      className={className}
-      type={type}
-      onClick={onClick}
-      aria-label={ariaLabel}
-    >
+    <button className={className} type={type} onClick={onClick} aria-label={ariaLabel}>
       {children}
     </button>
   );
