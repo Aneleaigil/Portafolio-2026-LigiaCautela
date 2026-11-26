@@ -1,0 +1,285 @@
+.page {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 24px var(--space-page-x) 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.back {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-button);
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.tag {
+  padding: 4px 14px;
+  border: 1px solid var(--color-mint);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+}
+
+.title {
+  font-size: 40px;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: var(--text-lead);
+  line-height: 1.5;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 980px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.metaValue {
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  color: var(--color-navy);
+}
+
+.body {
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Contexto */
+
+.contexto {
+  display: grid;
+  grid-template-columns: 1fr 373px;
+  gap: 48px;
+  align-items: start;
+}
+
+.contextoText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contextoImage {
+  justify-self: end;
+}
+
+.phoneSingle {
+  width: 100%;
+  max-width: 373px;
+  height: auto;
+}
+
+/* Proceso (banda de ancho completo) */
+
+.processBand {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--color-mint);
+  padding: 48px 0;
+}
+
+.processInner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-page-x);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.processTitle {
+  font-size: 32px;
+  text-align: center;
+  color: var(--color-navy);
+  text-transform: uppercase;
+}
+
+.etapas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.etapa {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--color-white);
+  border-radius: 16px;
+}
+
+.etapaTitle {
+  font-size: 24px;
+  color: var(--color-navy);
+}
+
+.etapaItem {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Canje parcial */
+
+.canjeTag {
+  align-self: flex-start;
+  padding: 4px 14px;
+  border: 1px solid var(--color-navy);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+}
+
+.phonesRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 260px));
+  justify-content: center;
+  align-items: end;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.phone {
+  width: 100%;
+  height: auto;
+}
+
+.strip {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+}
+
+/* Resultados */
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.resultCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: var(--color-white);
+}
+
+.resultHighlight {
+  background: var(--color-mint);
+  border-color: transparent;
+}
+
+.resultValue {
+  font-family: var(--font-title);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-button);
+  line-height: 1.2;
+}
+
+.resultText {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contexto {
+    grid-template-columns: 1fr;
+  }
+
+  .contextoImage {
+    justify-self: center;
+  }
+
+  .etapas,
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .sectionTitle,
+  .processTitle {
+    font-size: 26px;
+  }
+
+  .meta,
+  .etapas,
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  .phonesRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .processBand {
+    padding: 32px 0;
+  }
+}
