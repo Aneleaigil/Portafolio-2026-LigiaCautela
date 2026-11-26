@@ -1,7 +1,10 @@
 .page {
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 24px var(--space-page-x) 0;
+  padding: 24px var(--space-page-x) 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 /* Hero */
@@ -11,7 +14,6 @@
   grid-template-columns: 1fr;
   gap: 40px;
   align-items: start;
-  padding: 16px 0 72px;
 }
 
 .heroText {
@@ -81,7 +83,8 @@
 /* Secciones */
 
 .section {
-  padding: 24px 0 56px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sectionTitle {
@@ -175,9 +178,26 @@
     gap: 64px;
     padding-top: 40px;
   }
+
+  /* Ciudad sola en la primera línea; el resto de datos en horizontal debajo */
+  .contact li:first-child {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 899px) {
+  /* En móvil la imagen va antes que el texto */
+  .heroImage {
+    order: -1;
+    justify-self: start;
+  }
 }
 
 @media (max-width: 600px) {
+  .page {
+    gap: 24px;
+  }
+
   .title {
     font-size: 32px;
   }

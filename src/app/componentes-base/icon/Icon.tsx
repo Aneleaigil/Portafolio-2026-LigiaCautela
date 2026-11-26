@@ -1,6 +1,13 @@
 import styles from "./Icon.module.css";
 
-export type IconName = "home" | "mail" | "linkedin" | "download" | "chevron-down";
+export type IconName =
+  | "home"
+  | "mail"
+  | "linkedin"
+  | "download"
+  | "chevron-down"
+  | "menu"
+  | "close";
 
 type IconProps = {
   name: IconName;
@@ -23,6 +30,22 @@ const paths: Record<IconName, React.ReactNode> = {
   ),
   download: <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />,
   "chevron-down": <path d="m6 9 6 6 6-6" />,
+  // Material Design: icono "menu" (tres barras)
+  menu: (
+    <path
+      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
+  // Material Design: icono "close"
+  close: (
+    <path
+      d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
 };
 
 export default function Icon({ name, size = 20 }: IconProps) {
