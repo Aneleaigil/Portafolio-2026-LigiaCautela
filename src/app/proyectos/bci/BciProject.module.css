@@ -4,7 +4,7 @@
   padding: 24px var(--space-page-x) 56px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 60px;
 }
 
 .back {
@@ -51,11 +51,18 @@
   line-height: 1.5;
 }
 
+/* Metadatos con su línea divisoria */
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .meta {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
-  max-width: 980px;
 }
 
 .metaItem {
@@ -77,10 +84,21 @@
   color: var(--color-text);
 }
 
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  width: 100%;
+}
+
 .section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
 }
 
 .sectionTitle {
@@ -94,12 +112,12 @@
   color: var(--color-text);
 }
 
-/* Contexto */
+/* Contexto: texto e imagen más juntos */
 
 .contexto {
   display: grid;
   grid-template-columns: 1fr 373px;
-  gap: 48px;
+  gap: 24px;
   align-items: start;
 }
 
@@ -169,7 +187,15 @@
   line-height: 1.5;
 }
 
-/* Canje parcial */
+/* Fakedoor: imagen completa y centrada */
+
+.strip {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+/* Canje parcial: pantallas en escalera, a la derecha del texto */
 
 .canjeTag {
   align-self: flex-start;
@@ -180,26 +206,54 @@
 }
 
 .phonesRow {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 260px));
+  display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-start;
   gap: 24px;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .phone {
-  width: 100%;
+  width: 240px;
   height: auto;
 }
 
-.strip {
-  width: 100%;
-  height: auto;
-  max-width: 900px;
+.phoneLeft {
+  margin-top: 160px;
 }
 
-/* Resultados */
+.phoneMid {
+  margin-top: 80px;
+}
+
+.phoneRight {
+  margin-top: 0;
+}
+
+/* Resultados: 60px arriba y abajo */
+
+.resultsBand {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: #f7f7f7;
+  padding: 60px 0;
+}
+
+.resultsInner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-page-x);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 60px 0;
+}
 
 .results {
   display: grid;
@@ -275,11 +329,27 @@
   }
 
   .phonesRow {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+  }
+
+  .phone {
+    width: 32vw;
+  }
+
+  .phoneLeft {
+    margin-top: 72px;
+  }
+
+  .phoneMid {
+    margin-top: 36px;
   }
 
   .processBand {
     padding: 32px 0;
+  }
+
+  .resultsBand,
+  .resultsSection {
+    padding: 60px 0;
   }
 }

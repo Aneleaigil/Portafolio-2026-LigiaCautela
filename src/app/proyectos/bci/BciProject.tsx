@@ -4,9 +4,11 @@ import cashbackResumen from "@/assets/images/bci/cashback-resumen.png";
 import saldosMovimientos from "@/assets/images/bci/saldos-movimientos.png";
 import usarCashback from "@/assets/images/bci/usar-cashback.png";
 import canjeMonto from "@/assets/images/bci/canje-monto.png";
-import fakedoorStrip from "@/assets/images/bci/fakedoor-pantallas.png";
+import fakedoorPantallas from "@/assets/images/bci/fakedoor-pantallas.png";
 import { caso } from "./bci.data";
 import styles from "./BciProject.module.css";
+
+type ResultItem = { valor: string; texto: string; destacado?: boolean };
 
 export default function BciProject() {
   return (
@@ -28,14 +30,17 @@ export default function BciProject() {
         <p className={styles.description}>{caso.description}</p>
       </header>
 
-      <dl className={styles.meta}>
-        {caso.meta.map((item) => (
-          <div key={item.label} className={styles.metaItem}>
-            <dt className={styles.metaLabel}>{item.label}</dt>
-            <dd className={styles.metaValue}>{item.value}</dd>
-          </div>
-        ))}
-      </dl>
+      <div className={styles.metaBlock}>
+        <dl className={styles.meta}>
+          {caso.meta.map((item) => (
+            <div key={item.label} className={styles.metaItem}>
+              <dt className={styles.metaLabel}>{item.label}</dt>
+              <dd className={styles.metaValue}>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <hr className={styles.divider} />
+      </div>
 
       <section className={styles.contexto} aria-labelledby="contexto-titulo">
         <div className={styles.contextoText}>
@@ -87,12 +92,14 @@ export default function BciProject() {
             {p}
           </p>
         ))}
-        <Image
-          src={fakedoorStrip}
-          alt="Pantallas del fakedoor de canje de cashback"
-          className={styles.strip}
-          sizes="(max-width: 900px) 100vw, 900px"
-        />
+        <div className={styles.centered}>
+          <Image
+            src={fakedoorPantallas}
+            alt="Pantallas del prototipo del fakedoor de canje de cashback"
+            className={styles.strip}
+            sizes="(max-width: 1000px) 100vw, 1000px"
+          />
+        </div>
       </section>
 
       <section className={styles.section} aria-labelledby="canje-titulo">
@@ -106,20 +113,37 @@ export default function BciProject() {
           </p>
         ))}
         <div className={styles.phonesRow}>
-          <Image src={saldosMovimientos} alt="Pantalla de saldos y movimientos" className={styles.phone} sizes="(max-width: 600px) 45vw, 260px" />
-          <Image src={usarCashback} alt="Pantalla usar cashback con opciones de canje" className={styles.phone} sizes="(max-width: 600px) 45vw, 260px" />
-          <Image src={canjeMonto} alt="Pantalla de selección de monto a canjear" className={styles.phone} sizes="(max-width: 600px) 45vw, 260px" />
+          <Image
+            src={saldosMovimientos}
+            alt="Pantalla de saldos y movimientos"
+            className={`${styles.phone} ${styles.phoneLeft}`}
+            sizes="(max-width: 600px) 32vw, 240px"
+          />
+          <Image
+            src={usarCashback}
+            alt="Pantalla usar cashback con opciones de canje"
+            className={`${styles.phone} ${styles.phoneMid}`}
+            sizes="(max-width: 600px) 32vw, 240px"
+          />
+          <Image
+            src={canjeMonto}
+            alt="Pantalla de selección de monto a canjear"
+            className={`${styles.phone} ${styles.phoneRight}`}
+            sizes="(max-width: 600px) 32vw, 240px"
+          />
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="res-fakedoor">
-        <h2 id="res-fakedoor" className={styles.sectionTitle}>
-          {caso.resultadosFakedoor.title}
-        </h2>
-        <ResultGrid items={caso.resultadosFakedoor.items} />
+      <section className={styles.resultsBand} aria-labelledby="res-fakedoor">
+        <div className={styles.resultsInner}>
+          <h2 id="res-fakedoor" className={styles.sectionTitle}>
+            {caso.resultadosFakedoor.title}
+          </h2>
+          <ResultGrid items={caso.resultadosFakedoor.items} />
+        </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="res-guerrilla">
+      <section className={styles.resultsSection} aria-labelledby="res-guerrilla">
         <h2 id="res-guerrilla" className={styles.sectionTitle}>
           {caso.resultadosGuerrilla.title}
         </h2>
@@ -129,13 +153,14 @@ export default function BciProject() {
   );
 }
 
-type ResultItem = { valor: string; texto: string; destacado?: boolean };
-
 function ResultGrid({ items }: { items: ResultItem[] }) {
   return (
     <div className={styles.results}>
       {items.map((item) => (
-        <div key={item.valor} className={`${styles.resultCard} ${item.destacado ? styles.resultHighlight : ""}`}>
+        <div
+          key={item.valor}
+          className={`${styles.resultCard} ${item.destacado ? styles.resultHighlight : ""}`}
+        >
           <p className={styles.resultValue}>{item.valor}</p>
           <p className={styles.resultText}>{item.texto}</p>
         </div>
