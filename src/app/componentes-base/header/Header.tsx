@@ -9,7 +9,7 @@ import logo from "@/assets/logo/logo.png";
 import styles from "./Header.module.css";
 
 const navItems = [
-  { label: "Proyectos UX/UI", href: "/productos-digitales" },
+  { label: "Productos digitales", href: "/productos-digitales" },
   { label: "Proyectos Frontend-IA", href: "/proyectos-frontend-ia" },
   { label: "Acerca de mi", href: "/about" },
 ];

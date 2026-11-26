@@ -9,24 +9,26 @@ type ProjectCardProps = {
   client: string;
   year: string;
   tone: CardTone;
+  href: string;
   image?: StaticImageData | null;
   imageAlt?: string;
-  href?: string;
+  /** Muestra el texto "Ir al Caso" (solo en las tarjetas destacadas) */
+  showCta?: boolean;
 };
 
+/** La tarjeta completa es un enlace al caso del proyecto. */
 export default function ProjectCard({
   title,
   client,
   year,
   tone,
+  href,
   image,
   imageAlt = "",
-  href,
+  showCta = false,
 }: ProjectCardProps) {
-  const toneClass = styles[tone];
-
   return (
-    <article className={`${styles.card} ${toneClass}`}>
+    <Link href={href} className={`${styles.card} ${styles[tone]}`}>
       <div className={styles.media}>
         {image ? (
           <Image src={image} alt={imageAlt} className={styles.image} sizes="(max-width: 600px) 90vw, 33vw" />
@@ -39,12 +41,12 @@ export default function ProjectCard({
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.meta}>Cliente: {client}</p>
         <p className={styles.meta}>Año: {year}</p>
-        {href && (
-          <Link className={styles.cta} href={href}>
+        {showCta && (
+          <span className={styles.cta}>
             Ir al Caso <span aria-hidden="true">→</span>
-          </Link>
+          </span>
         )}
       </div>
-    </article>
+    </Link>
   );
 }
